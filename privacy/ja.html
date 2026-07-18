@@ -92,8 +92,28 @@
 
     <section>
       <h2>10. お問い合わせ</h2>
-      <p>本プライバシーポリシーに関するお問い合わせは、以下のメールアドレスまでご連絡ください。</p>
-      <p><code class="legal-email">app.yutech@gmail.com</code></p>
+      <p>本プライバシーポリシーに関するお問い合わせは、以下のフォームからご連絡ください。</p>
+      <!-- 問い合わせフォーム (Formspree経由で app.yutech@gmail.com に届く) -->
+      <form id="contact-form" class="contact-form" action="https://formspree.io/f/xkodrbdb" method="POST"
+            data-sending="送信中..."
+            data-success="送信しました。お問い合わせありがとうございます!"
+            data-error="送信に失敗しました。時間をおいて再度お試しいただくか、下記アドレスまで直接ご連絡ください。">
+        <div class="form-row">
+          <input type="text" name="name" required placeholder="お名前">
+          <input type="email" name="email" required placeholder="メールアドレス(返信用)">
+        </div>
+        <textarea name="message" rows="6" required placeholder="お問い合わせ内容"></textarea>
+        <!-- スパムボット対策 (人間には見えないフィールド) -->
+        <input type="text" name="_gotcha" class="gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button type="submit" class="cta-btn form-submit"><span>送信する</span></button>
+        <p id="form-status" class="form-status" role="status" hidden></p>
+      </form>
+      <!-- フォームが使えない場合の代替: アドレス表示+コピー -->
+      <p class="contact-alt">フォームが使えない場合はこちらへ:</p>
+      <div class="contact-email">
+        <code id="contact-address">app.yutech@gmail.com</code>
+        <button type="button" id="copy-email" class="copy-btn" data-copied="コピーしました!">コピー</button>
+      </div>
     </section>
   </main>
 
@@ -102,5 +122,6 @@
     <p>© <span id="year"></span> y-okawa777. All rights reserved.</p>
   </footer>
   <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+  <script src="contact.js"></script>
 </body>
 </html>
