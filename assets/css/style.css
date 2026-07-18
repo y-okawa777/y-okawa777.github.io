@@ -278,6 +278,23 @@ body {
 /* ---------- CONTACT ---------- */
 .contact-section { text-align: center; padding: 20px 5vw 90px; }
 .contact-body { color: var(--text-dim); margin-bottom: 28px; }
+.contact-email {
+  display: flex; align-items: center; justify-content: center; gap: 12px;
+  flex-wrap: wrap; margin-top: 22px;
+}
+.contact-email code {
+  font-family: var(--font-mono); font-size: 0.95rem; color: var(--green);
+  background: var(--bg-panel); border: 1px solid var(--line); padding: 8px 16px;
+}
+.copy-btn {
+  font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 0.08em;
+  color: var(--text-dim); background: transparent; border: 1px solid var(--line);
+  padding: 8px 16px; cursor: pointer;
+  clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);
+  transition: all 0.2s;
+}
+.copy-btn:hover { color: var(--cyan); border-color: var(--cyan); }
+.copy-btn.copied { color: #000; background: var(--green); border-color: var(--green); }
 
 /* ---------- フッター ---------- */
 .site-footer {
