@@ -96,8 +96,21 @@
     <section class="contact-section" id="contact">
       <h2 class="section-title" data-i18n="contact.title">CONTACT</h2>
       <p class="contact-body" data-i18n="contact.body"></p>
-      <a class="cta-btn cta-outline" href="mailto:app.yutech@gmail.com"><span data-i18n="contact.cta">Send Email</span></a>
-      <!-- メールアプリ未設定のブラウザ向け: アドレス表示+コピー -->
+      <!-- 問い合わせフォーム (Formspree経由で app.yutech@gmail.com に届く) -->
+      <form id="contact-form" class="contact-form" action="https://formspree.io/f/xkodrbdb" method="POST" novalidate="false">
+        <div class="form-row">
+          <input type="text" name="name" required data-i18n-placeholder="form.name" placeholder="Name">
+          <input type="email" name="email" required data-i18n-placeholder="form.email" placeholder="Email">
+        </div>
+        <textarea name="message" rows="6" required data-i18n-placeholder="form.message" placeholder="Message"></textarea>
+        <!-- スパムボット対策 (人間には見えないフィールド) -->
+        <input type="text" name="_gotcha" class="gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button type="submit" class="cta-btn form-submit"><span data-i18n="form.send">Send</span></button>
+        <p id="form-status" class="form-status" role="status" hidden></p>
+      </form>
+
+      <!-- フォームが使えない場合の代替: アドレス表示+コピー -->
+      <p class="contact-alt" data-i18n="contact.alt"></p>
       <div class="contact-email">
         <code id="contact-address">app.yutech@gmail.com</code>
         <button type="button" id="copy-email" class="copy-btn" data-i18n="contact.copy">Copy</button>

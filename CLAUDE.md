@@ -52,7 +52,8 @@ app-ads.txt           … AdMob用(既存。削除しない)
 - フッターの Privacy Policy リンクは言語連動(`main.js` の `applyI18n()` で ja→`privacy/ja.html` / en→`privacy/en.html` に切替)。
 - プライバシーポリシーは全アプリ共通の内容(端末内保存・AdMob広告・端末権限に言及)。内容を変える時は ja.html / en.html を必ず両方更新する。問い合わせ先は `app.yutech@gmail.com`。
 - ヒーロー統計は3つ(アプリ数/カテゴリ数/個人開発100%)。ABOUTのポイントカードは SIMPLE / FAST の2つ(PRIVATEはユーザー指示で削除済み。復活させない)。
-- 連絡先メールは `app.yutech@gmail.com` に統一(index.html の CONTACT セクションと privacy/ja.md・en.md の3箇所)。変更する場合は3箇所すべて更新すること。
+- 連絡先メールは `app.yutech@gmail.com` に統一(index.html の CONTACT セクションと privacy/ja.html・en.html の3箇所)。変更する場合は3箇所すべて更新すること。
+- 問い合わせフォームは **Formspree**(エンドポイント: `https://formspree.io/f/xkodrbdb`、無料プランは月50件まで)経由で `app.yutech@gmail.com` に届く。送信はJSでAJAX化しており(`main.js`)、失敗時は代替のアドレス表示+コピーUIが下にある。届け先メールを変えたい場合はFormspreeのダッシュボード側で設定変更する(コード側の変更は不要)。
 
 ## 動作確認
 

@@ -224,6 +224,43 @@
     renderCards();
   });
 
+  // 問い合わせフォーム (Formspree): ページ遷移せずAJAXで送信し、結果をインライン表示
+  const contactForm = document.getElementById("contact-form");
+  contactForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const status = document.getElementById("form-status");
+    const submitBtn = contactForm.querySelector(".form-submit");
+    const label = submitBtn.querySelector("span");
+    submitBtn.disabled = true;
+    label.textContent = t("form.sending");
+    status.hidden = true;
+    fetch(contactForm.action, {
+      method: "POST",
+      body: new FormData(contactForm),
+      headers: { Accept: "application/json" }
+    })
+      .then((res) => {
+        status.hidden = false;
+        if (res.ok) {
+          status.textContent = t("form.success");
+          status.classList.remove("is-error");
+          contactForm.reset();
+        } else {
+          status.textContent = t("form.error");
+          status.classList.add("is-error");
+        }
+      })
+      .catch(() => {
+        status.hidden = false;
+        status.textContent = t("form.error");
+        status.classList.add("is-error");
+      })
+      .finally(() => {
+        submitBtn.disabled = false;
+        label.textContent = t("form.send");
+      });
+  });
+
   // メールアドレスのコピーボタン (メールアプリ未設定環境向け)
   document.getElementById("copy-email").addEventListener("click", function () {
     const btn = this;
