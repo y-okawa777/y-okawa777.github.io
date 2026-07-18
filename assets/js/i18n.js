@@ -34,6 +34,8 @@ const I18N = {
     "contact.title": "CONTACT",
     "contact.body": "アプリの不具合報告・機能要望・お問い合わせはこちらへ。",
     "contact.cta": "メールを送る",
+    "contact.copy": "コピー",
+    "contact.copied": "コピーしました!",
     "footer.privacy": "プライバシーポリシー",
     "footer.rights": "All rights reserved.",
     "lang.switch": "EN"
@@ -69,6 +71,8 @@ const I18N = {
     "contact.title": "CONTACT",
     "contact.body": "Bug reports, feature requests, and inquiries are welcome.",
     "contact.cta": "Send Email",
+    "contact.copy": "Copy",
+    "contact.copied": "Copied!",
     "footer.privacy": "Privacy Policy",
     "footer.rights": "All rights reserved.",
     "lang.switch": "日本語"

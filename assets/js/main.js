@@ -179,22 +179,30 @@
     if (c && Date.now() - c.time < CACHE_TTL) iconCache = c;
   } catch (_) { /* 壊れたキャッシュは無視 */ }
 
+  // fetch+CORSはブラウザ環境により失敗することがあるため、
+  // iTunes APIが公式サポートするJSONP (callbackパラメータ) で取得する
   function fetchIcons() {
     if (Object.keys(iconCache.icons).length >= APPS.length) return;
     const ids = APPS.map((a) => a.id).join(",");
-    fetch(`https://itunes.apple.com/lookup?id=${ids}&country=${storeCountry()}`)
-      .then((r) => r.json())
-      .then((data) => {
-        (data.results || []).forEach((r) => {
-          if (r.trackId && r.artworkUrl100) {
-            iconCache.icons[String(r.trackId)] = r.artworkUrl100.replace("100x100", "128x128");
-          }
-        });
-        iconCache.time = Date.now();
-        try { localStorage.setItem(CACHE_KEY, JSON.stringify(iconCache)); } catch (_) {}
-        renderCards(); // 取得できたアイコンで再描画
-      })
-      .catch(() => { /* オフライン等はプレースホルダのまま */ });
+    window.__itunesIconsCb = function (data) {
+      (data.results || []).forEach((r) => {
+        if (r.trackId && r.artworkUrl100) {
+          iconCache.icons[String(r.trackId)] = r.artworkUrl100.replace("100x100", "128x128");
+        }
+      });
+      iconCache.time = Date.now();
+      try { localStorage.setItem(CACHE_KEY, JSON.stringify(iconCache)); } catch (_) {}
+      renderCards(); // 取得できたアイコンで再描画
+      cleanup();
+    };
+    const script = document.createElement("script");
+    script.src = `https://itunes.apple.com/lookup?id=${ids}&country=${storeCountry()}&callback=__itunesIconsCb`;
+    script.onerror = cleanup; // オフライン等はプレースホルダのまま
+    function cleanup() {
+      delete window.__itunesIconsCb;
+      script.remove();
+    }
+    document.head.appendChild(script);
   }
 
   // ---------- 初期化 ----------
@@ -214,6 +222,35 @@
   document.getElementById("app-search").addEventListener("input", (e) => {
     searchQuery = e.target.value.trim();
     renderCards();
+  });
+
+  // メールアドレスのコピーボタン (メールアプリ未設定環境向け)
+  document.getElementById("copy-email").addEventListener("click", function () {
+    const btn = this;
+    const address = document.getElementById("contact-address").textContent;
+    const done = () => {
+      btn.textContent = t("contact.copied");
+      btn.classList.add("copied");
+      setTimeout(() => {
+        btn.textContent = t("contact.copy");
+        btn.classList.remove("copied");
+      }, 2000);
+    };
+    // 古いブラウザ・Clipboard API拒否時のフォールバック
+    const fallbackCopy = () => {
+      const ta = document.createElement("textarea");
+      ta.value = address;
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand("copy");
+      ta.remove();
+      done();
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(address).then(done).catch(fallbackCopy);
+    } else {
+      fallbackCopy();
+    }
   });
 
   document.getElementById("year").textContent = new Date().getFullYear();
