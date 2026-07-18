@@ -92,8 +92,28 @@
 
     <section>
       <h2>10. Contact Us</h2>
-      <p>If you have any questions about this Privacy Policy, please contact:</p>
-      <p><code class="legal-email">app.yutech@gmail.com</code></p>
+      <p>If you have any questions about this Privacy Policy, please use the form below:</p>
+      <!-- Contact form (delivered to app.yutech@gmail.com via Formspree) -->
+      <form id="contact-form" class="contact-form" action="https://formspree.io/f/xkodrbdb" method="POST"
+            data-sending="Sending..."
+            data-success="Message sent. Thank you for reaching out!"
+            data-error="Failed to send. Please try again later, or email me directly at the address below.">
+        <div class="form-row">
+          <input type="text" name="name" required placeholder="Name">
+          <input type="email" name="email" required placeholder="Email (for reply)">
+        </div>
+        <textarea name="message" rows="6" required placeholder="Your message"></textarea>
+        <!-- Honeypot field for spam bots (invisible to humans) -->
+        <input type="text" name="_gotcha" class="gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button type="submit" class="cta-btn form-submit"><span>Send Message</span></button>
+        <p id="form-status" class="form-status" role="status" hidden></p>
+      </form>
+      <!-- Fallback if the form doesn't work: address + copy -->
+      <p class="contact-alt">If the form doesn't work, reach me here:</p>
+      <div class="contact-email">
+        <code id="contact-address">app.yutech@gmail.com</code>
+        <button type="button" id="copy-email" class="copy-btn" data-copied="Copied!">Copy</button>
+      </div>
     </section>
   </main>
 
@@ -102,5 +122,6 @@
     <p>© <span id="year"></span> y-okawa777. All rights reserved.</p>
   </footer>
   <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+  <script src="contact.js"></script>
 </body>
 </html>
