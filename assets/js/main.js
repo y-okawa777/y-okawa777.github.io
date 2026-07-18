@@ -28,7 +28,7 @@
     });
     // プライバシーポリシーは言語別ファイルへリンク
     const privacyLink = document.getElementById("privacy-link");
-    if (privacyLink) privacyLink.href = lang === "ja" ? "privacy/ja.md" : "privacy/en.md";
+    if (privacyLink) privacyLink.href = lang === "ja" ? "privacy/ja.html" : "privacy/en.html";
   }
 
   // ---------- ターミナル演出 (1行ずつタイプ表示) ----------
@@ -222,6 +222,43 @@
   document.getElementById("app-search").addEventListener("input", (e) => {
     searchQuery = e.target.value.trim();
     renderCards();
+  });
+
+  // 問い合わせフォーム (Formspree): ページ遷移せずAJAXで送信し、結果をインライン表示
+  const contactForm = document.getElementById("contact-form");
+  contactForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const status = document.getElementById("form-status");
+    const submitBtn = contactForm.querySelector(".form-submit");
+    const label = submitBtn.querySelector("span");
+    submitBtn.disabled = true;
+    label.textContent = t("form.sending");
+    status.hidden = true;
+    fetch(contactForm.action, {
+      method: "POST",
+      body: new FormData(contactForm),
+      headers: { Accept: "application/json" }
+    })
+      .then((res) => {
+        status.hidden = false;
+        if (res.ok) {
+          status.textContent = t("form.success");
+          status.classList.remove("is-error");
+          contactForm.reset();
+        } else {
+          status.textContent = t("form.error");
+          status.classList.add("is-error");
+        }
+      })
+      .catch(() => {
+        status.hidden = false;
+        status.textContent = t("form.error");
+        status.classList.add("is-error");
+      })
+      .finally(() => {
+        submitBtn.disabled = false;
+        label.textContent = t("form.send");
+      });
   });
 
   // メールアドレスのコピーボタン (メールアプリ未設定環境向け)

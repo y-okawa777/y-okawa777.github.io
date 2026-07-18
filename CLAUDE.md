@@ -24,8 +24,9 @@ assets/css/style.css  … 全スタイル。色は:rootの変数で一元管理
 assets/js/apps-data.js … アプリカタログのデータ(APPS配列)★アプリ追加はここだけ
 assets/js/i18n.js     … UI文言(I18N)とカテゴリ表示名(CATEGORY_LABELS)
 assets/js/main.js     … 言語判定/カード描画/フィルタ/検索/アイコン取得
-privacy/ja.md         … プライバシーポリシー日本語版(全アプリ共通。削除しない)
-privacy/en.md         … プライバシーポリシー英語版(ja.mdと内容を同期させること)
+privacy/ja.html       … プライバシーポリシー日本語版(全アプリ共通。削除しない)
+privacy/en.html       … プライバシーポリシー英語版(ja.htmlと内容を同期させること)
+privacy/privacy.css   … ポリシーページ専用スタイル(style.cssの変数を利用)
 app-ads.txt           … AdMob用(既存。削除しない)
 ```
 
@@ -47,10 +48,12 @@ app-ads.txt           … AdMob用(既存。削除しない)
 ## 既知の注意点
 
 - CoinPouch のJP版URLは元の資料では `id67848988400`(桁が1つ多いタイポ)だったが、正しい `id6784898840` を使用している。
-- フッターの Privacy Policy リンクは言語連動(`main.js` の `applyI18n()` で ja→`privacy/ja.md` / en→`privacy/en.md` に切替)。生Markdownが表示されるため、きれいに見せたくなったら `privacy/` にHTML版を作ってリンク先を変更する。
-- プライバシーポリシーは全アプリ共通の内容(端末内保存・AdMob広告・端末権限に言及)。内容を変える時は ja.md / en.md を必ず両方更新する。問い合わせ先は `app.yutech@gmail.com`。
+- **【重要】App Store の各アプリは `https://y-okawa777.github.io/privacy/ja` (拡張子なし) をプライバシーポリシーURLとして登録済み**。GitHub Pages は拡張子なしURLを同名の `.html` に解決するため、`privacy/ja.html` / `privacy/en.html` は絶対にリネーム・削除しないこと(リンク切れ=審査リジェクトの原因になる)。
+- フッターの Privacy Policy リンクは言語連動(`main.js` の `applyI18n()` で ja→`privacy/ja.html` / en→`privacy/en.html` に切替)。
+- プライバシーポリシーは全アプリ共通の内容(端末内保存・AdMob広告・端末権限に言及)。内容を変える時は ja.html / en.html を必ず両方更新する。問い合わせ先は `app.yutech@gmail.com`。
 - ヒーロー統計は3つ(アプリ数/カテゴリ数/個人開発100%)。ABOUTのポイントカードは SIMPLE / FAST の2つ(PRIVATEはユーザー指示で削除済み。復活させない)。
-- 連絡先メールは `app.yutech@gmail.com` に統一(index.html の CONTACT セクションと privacy/ja.md・en.md の3箇所)。変更する場合は3箇所すべて更新すること。
+- 連絡先メールは `app.yutech@gmail.com` に統一(index.html の CONTACT セクションと privacy/ja.html・en.html の3箇所)。変更する場合は3箇所すべて更新すること。
+- 問い合わせフォームは **Formspree**(エンドポイント: `https://formspree.io/f/xkodrbdb`、無料プランは月50件まで)経由で `app.yutech@gmail.com` に届く。送信はJSでAJAX化しており(`main.js`)、失敗時は代替のアドレス表示+コピーUIが下にある。届け先メールを変えたい場合はFormspreeのダッシュボード側で設定変更する(コード側の変更は不要)。
 
 ## 動作確認
 

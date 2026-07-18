@@ -1,0 +1,53 @@
+/* プライバシーポリシーページ専用スタイル (assets/css/style.css の上に読み込む) */
+.legal {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 60px 5vw 80px;
+}
+.legal .section-title {
+  margin-bottom: 34px;
+}
+.legal-intro {
+  color: var(--text-dim);
+  margin-bottom: 40px;
+}
+.legal section {
+  background: var(--bg-panel);
+  border: 1px solid var(--line);
+  clip-path: var(--clip-card);
+  padding: 26px 28px;
+  margin-bottom: 18px;
+}
+.legal h2 {
+  font-family: var(--font-display);
+  font-size: 1.02rem;
+  letter-spacing: 0.08em;
+  color: var(--cyan);
+  text-shadow: 0 0 12px rgba(0, 240, 255, 0.4);
+  margin-bottom: 12px;
+}
+.legal p { color: var(--text); margin-bottom: 10px; font-size: 0.98rem; }
+.legal p:last-child { margin-bottom: 0; }
+.legal strong { color: var(--yellow); font-weight: 700; }
+.legal ul { margin: 10px 0 12px 1.3em; color: var(--text); }
+.legal li { margin-bottom: 6px; font-size: 0.98rem; }
+.legal a { color: var(--cyan); }
+.legal a:hover { text-shadow: 0 0 10px var(--cyan); }
+.legal-date {
+  font-family: var(--font-mono);
+  color: var(--green);
+  font-size: 0.9rem;
+}
+.legal-email {
+  display: inline-block;
+  font-family: var(--font-mono);
+  color: var(--green);
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  padding: 8px 16px;
+}
+.lang-link {
+  color: var(--yellow) !important;
+  border: 1px solid var(--yellow);
+  padding: 4px 12px;
+}
