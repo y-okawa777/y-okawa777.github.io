@@ -1,0 +1,88 @@
+// ============================================================
+// UI文言の多言語定義
+// 文言を変えたい場合はここを編集。キーは ja / en 両方に必ず定義すること。
+// ============================================================
+const I18N = {
+  ja: {
+    "nav.apps": "APPS",
+    "nav.about": "ABOUT",
+    "nav.contact": "CONTACT",
+    "hero.eyebrow": "INDIE APP DEVELOPER",
+    "hero.title.line1": "日常を、",
+    "hero.title.line2": "アップグレードせよ。",
+    "hero.sub": "個人開発による iOS アプリ群。小さくて、速くて、毎日がちょっと便利になる道具たち。",
+    "hero.cta": "アプリを見る",
+    "terminal.l1": "> boot y-okawa777.dev",
+    "terminal.l2": "> loading app modules ......... OK",
+    "terminal.l3": "> language: 日本語 detected",
+    "terminal.l4": "> welcome, visitor_",
+    "stats.apps": "リリース済みアプリ",
+    "stats.categories": "カテゴリ",
+    "stats.indie": "個人開発",
+    "apps.title": "APP CATALOG",
+    "apps.sub": "すべて App Store で配信中。カテゴリで絞り込めます。",
+    "search.placeholder": "アプリを検索...",
+    "filter.all": "ALL",
+    "card.appstore": "App Store で見る",
+    "empty.result": "該当するアプリが見つかりません",
+    "about.title": "ABOUT DEVELOPER",
+    "about.body": "個人開発者として「あったらいいな」を形にしています。ひとつひとつのアプリは小さいけれど、それぞれが日常のどこかを確実に便利にする。そんな道具箱のようなラインナップを目指して、今日も開発を続けています。",
+    "about.point1.title": "SIMPLE",
+    "about.point1.body": "1アプリ1目的。迷わず使えるミニマル設計。",
+    "about.point2.title": "FAST",
+    "about.point2.body": "起動して3秒で本題へ。速さは正義。",
+    "contact.title": "CONTACT",
+    "contact.body": "アプリの不具合報告・機能要望・お問い合わせはこちらへ。",
+    "contact.cta": "メールを送る",
+    "footer.privacy": "プライバシーポリシー",
+    "footer.rights": "All rights reserved.",
+    "lang.switch": "EN"
+  },
+  en: {
+    "nav.apps": "APPS",
+    "nav.about": "ABOUT",
+    "nav.contact": "CONTACT",
+    "hero.eyebrow": "INDIE APP DEVELOPER",
+    "hero.title.line1": "Upgrade",
+    "hero.title.line2": "your everyday.",
+    "hero.sub": "A collection of indie-built iOS apps. Small, fast tools that make daily life a little better.",
+    "hero.cta": "Browse Apps",
+    "terminal.l1": "> boot y-okawa777.dev",
+    "terminal.l2": "> loading app modules ......... OK",
+    "terminal.l3": "> language: English detected",
+    "terminal.l4": "> welcome, visitor_",
+    "stats.apps": "Apps Shipped",
+    "stats.categories": "Categories",
+    "stats.indie": "Indie Made",
+    "apps.title": "APP CATALOG",
+    "apps.sub": "All available on the App Store. Filter by category.",
+    "search.placeholder": "Search apps...",
+    "filter.all": "ALL",
+    "card.appstore": "View on App Store",
+    "empty.result": "No apps match your search",
+    "about.title": "ABOUT DEVELOPER",
+    "about.body": "I'm an indie developer turning everyday 'wouldn't it be nice' moments into real apps. Each one is small, but each one reliably improves some corner of your day. Think of this catalog as a well-organized toolbox — and it keeps growing.",
+    "about.point1.title": "SIMPLE",
+    "about.point1.body": "One app, one purpose. Minimal design, zero confusion.",
+    "about.point2.title": "FAST",
+    "about.point2.body": "Launch to done in seconds. Speed is a feature.",
+    "contact.title": "CONTACT",
+    "contact.body": "Bug reports, feature requests, and inquiries are welcome.",
+    "contact.cta": "Send Email",
+    "footer.privacy": "Privacy Policy",
+    "footer.rights": "All rights reserved.",
+    "lang.switch": "日本語"
+  }
+};
+
+// カテゴリ表示名 (フィルタボタン・カードタグ共通)
+const CATEGORY_LABELS = {
+  productivity: { ja: "仕事効率化", en: "Productivity" },
+  health:       { ja: "健康・フィットネス", en: "Health & Fitness" },
+  lifestyle:    { ja: "ライフスタイル", en: "Lifestyle" },
+  photo:        { ja: "写真・カメラ", en: "Photo & Camera" },
+  finance:      { ja: "お金・家計", en: "Finance" },
+  tools:        { ja: "ツール", en: "Utilities" },
+  food:         { ja: "フード", en: "Food & Drink" },
+  game:         { ja: "ゲーム", en: "Games" }
+};
