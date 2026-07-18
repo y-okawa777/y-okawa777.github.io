@@ -28,7 +28,7 @@
     });
     // プライバシーポリシーは言語別ファイルへリンク
     const privacyLink = document.getElementById("privacy-link");
-    if (privacyLink) privacyLink.href = lang === "ja" ? "privacy/ja.md" : "privacy/en.md";
+    if (privacyLink) privacyLink.href = lang === "ja" ? "privacy/ja.html" : "privacy/en.html";
   }
 
   // ---------- ターミナル演出 (1行ずつタイプ表示) ----------
