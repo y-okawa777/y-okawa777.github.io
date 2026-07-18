@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Y-OKAWA777 // Indie App Foundry</title>
+  <meta name="description" content="個人開発iOSアプリのカタログ。Indie-built iOS apps that upgrade your everyday.">
+  <meta property="og:title" content="Y-OKAWA777 // Indie App Foundry">
+  <meta property="og:description" content="Indie-built iOS apps that upgrade your everyday.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Share+Tech+Mono&family=Rajdhani:wght@500;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+  <!-- 背景演出レイヤー -->
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="scanlines" aria-hidden="true"></div>
+
+  <!-- ヘッダー -->
+  <header class="site-header">
+    <a class="logo" href="#top">
+      <span class="logo-bracket">[</span>Y-OKAWA<span class="logo-num">777</span><span class="logo-bracket">]</span>
+    </a>
+    <nav class="site-nav">
+      <a href="#apps" data-i18n="nav.apps">APPS</a>
+      <a href="#about" data-i18n="nav.about">ABOUT</a>
+      <a href="#contact" data-i18n="nav.contact">CONTACT</a>
+      <button id="lang-toggle" class="lang-toggle" type="button" aria-label="Switch language">
+        <span data-i18n="lang.switch">EN</span>
+      </button>
+    </nav>
+  </header>
+
+  <main id="top">
+    <!-- ヒーロー -->
+    <section class="hero">
+      <p class="hero-eyebrow" data-i18n="hero.eyebrow">INDIE APP DEVELOPER</p>
+      <h1 class="hero-title">
+        <span class="glitch" data-i18n="hero.title.line1">日常を、</span><br>
+        <span class="glitch glitch-alt" data-i18n="hero.title.line2">アップグレードせよ。</span>
+      </h1>
+      <p class="hero-sub" data-i18n="hero.sub"></p>
+      <a class="cta-btn" href="#apps"><span data-i18n="hero.cta">アプリを見る</span><span class="cta-arrow">▼</span></a>
+
+      <!-- ターミナル風演出 -->
+      <div class="terminal" aria-hidden="true">
+        <div class="terminal-bar">
+          <span class="t-dot t-red"></span><span class="t-dot t-yellow"></span><span class="t-dot t-green"></span>
+          <span class="terminal-title">y-okawa777 — zsh</span>
+        </div>
+        <div class="terminal-body" id="terminal-body"></div>
+      </div>
+
+      <!-- 統計 -->
+      <div class="stats">
+        <div class="stat"><span class="stat-num" id="stat-apps">0</span><span class="stat-label" data-i18n="stats.apps">Apps</span></div>
+        <div class="stat"><span class="stat-num" id="stat-cats">0</span><span class="stat-label" data-i18n="stats.categories">Categories</span></div>
+        <div class="stat"><span class="stat-num">100<small>%</small></span><span class="stat-label" data-i18n="stats.indie">Indie</span></div>
+      </div>
+    </section>
+
+    <!-- アプリカタログ -->
+    <section class="apps-section" id="apps">
+      <h2 class="section-title" data-i18n="apps.title">APP CATALOG</h2>
+      <p class="section-sub" data-i18n="apps.sub"></p>
+
+      <div class="catalog-controls">
+        <input type="search" id="app-search" class="app-search" data-i18n-placeholder="search.placeholder" placeholder="Search apps...">
+        <div class="filters" id="filters"></div>
+      </div>
+
+      <div class="app-grid" id="app-grid"></div>
+      <p class="empty-msg" id="empty-msg" data-i18n="empty.result" hidden></p>
+    </section>
+
+    <!-- 開発者について -->
+    <section class="about-section" id="about">
+      <h2 class="section-title" data-i18n="about.title">ABOUT DEVELOPER</h2>
+      <p class="about-body" data-i18n="about.body"></p>
+      <div class="about-points">
+        <div class="point neon-cyan">
+          <h3 data-i18n="about.point1.title">SIMPLE</h3>
+          <p data-i18n="about.point1.body"></p>
+        </div>
+        <div class="point neon-magenta">
+          <h3 data-i18n="about.point2.title">FAST</h3>
+          <p data-i18n="about.point2.body"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- コンタクト -->
+    <section class="contact-section" id="contact">
+      <h2 class="section-title" data-i18n="contact.title">CONTACT</h2>
+      <p class="contact-body" data-i18n="contact.body"></p>
+      <a class="cta-btn cta-outline" href="mailto:app.yutech@gmail.com"><span data-i18n="contact.cta">Send Email</span></a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a href="privacy/ja.md" id="privacy-link" data-i18n="footer.privacy">Privacy Policy</a>
+    <p>© <span id="year"></span> y-okawa777. <span data-i18n="footer.rights">All rights reserved.</span></p>
+  </footer>
+
+  <script src="assets/js/apps-data.js"></script>
+  <script src="assets/js/i18n.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
